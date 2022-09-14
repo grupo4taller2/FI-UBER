@@ -2,10 +2,8 @@ version: "3.7"
 
 services:
   backend-users:
-    image: fiuber.backend-users
-    build:
-      context: ./backend-users
-    container_name: backend-users
+    container_name: fiuber.backend-users.dev
+    image: fiuber.backend-users:dev
     volumes:
       - ./backend-users/src:/opt/app/src
       - ./backend-users/test:/opt/app/test
@@ -15,6 +13,8 @@ services:
       - fiuber
     ports:
       - "7001:7001"
+    command: "bash -c 'python3 -m uvicorn src.main:app --host=0.0.0.0 --port=$${PORT} --reload'"
+    
 
 networks:
   fiuber:
