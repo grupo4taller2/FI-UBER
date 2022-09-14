@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+  backend-users:
+    image: fiuber.backend-users
+    build:
+      context: ./backend-users
+    container_name: backend-users
+    volumes:
+      - ./backend-users/src:/opt/app/src
+      - ./backend-users/test:/opt/app/test
+    environment:
+      - PORT=7001
+    networks:
+      - fiuber
+    ports:
+      - "7001:7001"
+
+networks:
+  fiuber:
+    driver: bridge
