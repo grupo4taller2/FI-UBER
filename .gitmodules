@@ -2,3 +2,6 @@
 	path = backend-users
 	url = git@github.com:grupo4taller2/backend-users.git
 	update = merge
+[submodule "api-gateway"]
+	path = api-gateway
+	url = git@github.com:grupo4taller2/api-gateway.git
