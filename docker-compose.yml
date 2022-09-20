@@ -1,24 +1,12 @@
 version: "3.7"
 
 services:
-  service-authentication:
-    container_name: fiuber.backend-authentication.dev
-    image: fiuber.backend-authentication:dev
-    volumes:
-      - ./service-authentication/src:/opt/app/src
-    environment:
-      - PORT=7001
-    networks:
-      - fiuber
-    ports:
-      - "7001:7001"
-    command: "npm run dev"
   backend-users:
     container_name: fiuber.backend-users.dev
     image: fiuber.backend-users:dev
     volumes:
-      - ./backend-users/src:/opt/app/src
-      - ./backend-users/test:/opt/app/test
+      - ./service-users/src:/opt/app/src
+      - ./service-users/test:/opt/app/test
     environment:
       - PORT=7002
     networks:
