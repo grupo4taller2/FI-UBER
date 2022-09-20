@@ -5,3 +5,6 @@
 [submodule "api-gateway"]
 	path = api-gateway
 	url = git@github.com:grupo4taller2/api-gateway.git
+[submodule "service-authentication"]
+	path = service-authentication
+	url = git@github.com:grupo4taller2/service-authentication.git
