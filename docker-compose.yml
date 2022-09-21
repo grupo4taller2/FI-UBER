@@ -24,7 +24,7 @@ services:
     tty: true        # docker run -t
     depends_on:
       - dev-db
-    # There are better ways to do this ...
+    # There must be better ways to do this ...
     command: "bash -c 'sleep 5 && alembic upgrade head && python3 -m uvicorn src.main:app --host=$${SERVICE_USERS_HOST} --port=$${SERVICE_USERS_PORT} --reload'"
   
   dev-db:
