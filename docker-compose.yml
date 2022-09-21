@@ -11,17 +11,35 @@ services:
     volumes:
       - ./service-users/src:/opt/app/src
       - ./service-users/test:/opt/app/test
+      - ./service-users/alembic:/opt/app/alembic
     environment:
       - SERVICE_USERS_PORT=${SERVICE_USERS_PORT}
       - SERVICE_USERS_HOST=${SERVICE_USERS_HOST}
+      - SQLALCHEMY_DATABASE_URI=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:5432/${DATABASE_NAME}
     networks:
       - fiuber
     ports:
       - "${SERVICE_USERS_PORT}:${SERVICE_USERS_PORT}"
     stdin_open: true # docker run -i
     tty: true        # docker run -t
-    command: "bash -c 'python3 -m uvicorn src.main:app --host=$${SERVICE_USERS_HOST} --port=$${SERVICE_USERS_PORT} --reload'"
-    
+    depends_on:
+      - dev-db
+    # There are better ways to do this ...
+    command: "bash -c 'sleep 5 && alembic upgrade head && python3 -m uvicorn src.main:app --host=$${SERVICE_USERS_HOST} --port=$${SERVICE_USERS_PORT} --reload'"
+  
+  dev-db:
+    image: postgres:14.5-bullseye
+    container_name: fiuber-postgres
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_HOST=${POSTGRES_HOST}
+      - POSTGRES_PORT=${POSTGRES_PORT}
+    networks:
+      - fiuber
+    ports:
+      - "${POSTGRES_PORT}:5432"
+
 networks:
   fiuber:
     driver: bridge
