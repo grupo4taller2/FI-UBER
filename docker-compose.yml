@@ -1,21 +1,27 @@
 version: "3.7"
 
 services:
-  backend-users:
-    container_name: fiuber.backend-users.dev
-    image: fiuber.backend-users:dev
+  users:
+    build:
+      context: service-users
+      args:
+        APP_ENV: dev
+    image: fiuber.service-users:dev
+    container_name: fiuber.service-users.dev
     volumes:
       - ./service-users/src:/opt/app/src
       - ./service-users/test:/opt/app/test
     environment:
-      - PORT=7002
+      - PORT=7000
     networks:
       - fiuber
     ports:
-      - "7002:7002"
+      - "7000:7000"
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
     command: "bash -c 'python3 -m uvicorn src.main:app --host=0.0.0.0 --port=$${PORT} --reload'"
     
-
 networks:
   fiuber:
     driver: bridge
+    name: fiuber
