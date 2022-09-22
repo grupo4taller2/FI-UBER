@@ -1,7 +1,7 @@
 version: "3.7"
 
 services:
-  users:
+  service-users:
     build:
       context: service-users
       args:
