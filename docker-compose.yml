@@ -1,11 +1,36 @@
 version: "3.7"
 
 services:
+  api-gateway:
+    hostname: api-gateway
+    build:
+      context: api-gateway
+      args:
+        APP_ENV: development
+    image: fiuber.api-gateway:dev
+    container_name: fiuber.api-gateway.dev
+    volumes:
+      - ./api-gateway/src:/opt/app/src
+      - ./api-gateway/test:/opt/app/test
+    environment:
+      - API_GATEWAY_PORT=${API_GATEWAY_PORT}
+      - NODE_ENV=development
+    networks:
+      - fiuber
+    ports:
+      - "${API_GATEWAY_PORT}:${API_GATEWAY_PORT}"
+    stdin_open: true
+    tty: true
+    depends_on:
+      - service-users
+    command: "bash -c 'npm run dev-start'"
+  
   service-users:
+    hostname: service-users
     build:
       context: service-users
       args:
-        APP_ENV: dev
+        APP_ENV: development
     image: fiuber.service-users:dev
     container_name: fiuber.service-users.dev
     volumes:
