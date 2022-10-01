@@ -37,14 +37,16 @@ services:
       - ./service-auth/src:/opt/app/src
       - ./service-auth/test:/opt/app/test
     environment:
-      - SERVICE_AUTH_HOST=value
-      - SERVICE_AUTH_PORT=value
+      - SERVICE_AUTH_HOST=${SERVICE_AUTH_HOST}
+      - SERVICE_AUTH_PORT=${SERVICE_AUTH_PORT}
     networks:
       - fiuber
     ports:
       - "${SERVICE_AUTH_PORT}:${SERVICE_AUTH_PORT}"
     stdin_open: true
     tty: true
+    depends_on:
+      - dev-db
     command: bash
     
   service-users:
