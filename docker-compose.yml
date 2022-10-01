@@ -72,7 +72,7 @@ services:
     depends_on:
       - dev-db
     # There must be better ways to do this ...
-    command: "bash -c 'sleep 5 && alembic upgrade head && python3 -m uvicorn src.entrypoints.http.fastapi_api:app --host=$${SERVICE_USERS_HOST} --port=$${SERVICE_USERS_PORT} --reload'"
+    command: "bash -c 'sleep 5 && alembic upgrade head && python3 -m uvicorn src.entrypoints.http.main:app --host=$${SERVICE_USERS_HOST} --port=$${SERVICE_USERS_PORT} --reload'"
   
   dev-db:
     image: postgres:14.5-bullseye
