@@ -13,6 +13,7 @@ services:
       - ./api-gateway/src:/opt/app/src
       - ./api-gateway/test:/opt/app/test
     environment:
+      - API_GATEWAY_HOST=${API_GATEWAY_HOST}
       - API_GATEWAY_PORT=${API_GATEWAY_PORT}
       - NODE_ENV=development
     networks:
