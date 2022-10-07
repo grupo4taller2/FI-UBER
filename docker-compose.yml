@@ -51,7 +51,7 @@ services:
     tty: true
     depends_on:
       - dev-db
-    command: bash
+    command: "bash -c 'python3 -m uvicorn src.entrypoints.http.main:app --host=$${SERVICE_AUTH_HOST} --port=$${SERVICE_AUTH_PORT} --reload'"
     
   service-users:
     hostname: service-users
