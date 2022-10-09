@@ -13,8 +13,8 @@ services:
       - ./api-gateway/src:/opt/app/src
       - ./api-gateway/test:/opt/app/test
     environment:
-      - API_GATEWAY_HOST=${API_GATEWAY_HOST}
-      - API_GATEWAY_PORT=${API_GATEWAY_PORT}
+      - HOST=${API_GATEWAY_HOST}
+      - PORT=${API_GATEWAY_PORT}
       - NODE_ENV=development
       - SERVICE_USERS_URL=http://${API_GATEWAY_SERVICE_USERS_HOST}:${SERVICE_USERS_PORT}${SERVICE_USERS_API_VERSION_PREFIX}
       - SERVICE_AUTH_URL=http://${API_GATEWAY_SERVICE_AUTH_HOST}:${SERVICE_AUTH_PORT}${SERVICE_AUTH_API_VERSION_PREFIX}
