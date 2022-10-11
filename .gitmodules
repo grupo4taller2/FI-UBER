@@ -4,3 +4,7 @@
 	branch = main
 [submodule "origin"]
 	branch = .
+[submodule "api-gateway"]
+	path = api-gateway
+	url = git@github.com:grupo4taller2/api-gateway.git
+	branch = main
