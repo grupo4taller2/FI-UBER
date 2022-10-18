@@ -30,6 +30,7 @@ services:
       - FB_TOKEN_URI=${FB_TOKEN_URI}
       - FB_AUTH_PROVIDER_CERT_URL=${FB_AUTH_PROVIDER_CERT_URL}
       - FB_CLIENT_CERT_URL=${FB_CLIENT_CERT_URL}
+      - ENV_TESTING=true
     networks:
       - fiuber
     ports:
