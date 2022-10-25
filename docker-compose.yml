@@ -65,7 +65,7 @@ services:
     depends_on:
       - dev-db
     # There must be better ways to do this ...
-    command: "bash -c 'sleep 5 && alembic upgrade head && python3 -m uvicorn src.entrypoints.http.main:app --host=$${SERVICE_USERS_HOST} --port=$${SERVICE_USERS_PORT} --reload'"
+    command: "bash -c 'sleep 5 && alembic upgrade head && python3 -m uvicorn src.webapi.main:app --host=$${SERVICE_USERS_HOST} --port=$${SERVICE_USERS_PORT} --reload'"
   
   service-trips:
     hostname: service-trips
