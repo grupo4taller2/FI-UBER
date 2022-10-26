@@ -78,6 +78,7 @@ services:
     volumes:
       - ./service-trips/src:/opt/app/src
       - ./service-trips/test:/opt/app/test
+      - ./service-trips/.vscode:/opt/app/.vscode
     environment:
       - SERVICE_TRIPS_HOST=${SERVICE_TRIPS_HOST}
       - SERVICE_TRIPS_PORT=${SERVICE_TRIPS_PORT}
