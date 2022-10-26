@@ -93,7 +93,7 @@ services:
     tty: true
     depends_on:
       - dev-db
-    command: "bash -c 'python3 -m uvicorn src.entrypoints.http.main:app --host=$${SERVICE_TRIPS_HOST} --port=$${SERVICE_TRIPS_PORT} --reload'"
+    command: "bash -c 'python3 -m uvicorn src.webapi.main:app --host=$${SERVICE_TRIPS_HOST} --port=$${SERVICE_TRIPS_PORT} --reload'"
   
   dev-db:
     image: postgres:14.5-bullseye
