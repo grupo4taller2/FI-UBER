@@ -12,6 +12,7 @@ services:
     volumes:
       - ./api-gateway/src:/opt/app/src
       - ./api-gateway/test:/opt/app/test
+      - ./service-trips/.vscode:/opt/app/.vscode
     environment:
       - HOST=${API_GATEWAY_HOST}
       - PORT=${API_GATEWAY_PORT}
@@ -51,6 +52,7 @@ services:
       - ./service-users/src:/opt/app/src
       - ./service-users/test:/opt/app/test
       - ./service-users/alembic:/opt/app/alembic
+      - ./service-trips/.vscode:/opt/app/.vscode
     environment:
       - SERVICE_USERS_HOST=${SERVICE_USERS_HOST}
       - SERVICE_USERS_PORT=${SERVICE_USERS_PORT}
