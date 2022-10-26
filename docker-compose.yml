@@ -109,6 +109,8 @@ services:
       - fiuber
     ports:
       - "${POSTGRES_PORT}:${POSTGRES_PORT}"
+    # volumes:
+    #  - /mnt/ramdisk:/var/lib/postgresql/data
 
 networks:
   fiuber:
