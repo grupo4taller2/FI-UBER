@@ -22,3 +22,7 @@
 	path = service-trips
 	url = git@github.com:grupo4taller2/service-trips.git
 	branch = main
+[submodule "service-pricing"]
+	path = service-pricing
+	url = git@github.com:grupo4taller2/service-pricing.git
+	branch = main
