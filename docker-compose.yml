@@ -147,6 +147,15 @@ services:
     volumes:
       - /mnt/ramdisk:/var/lib/postgresql/data
 
+  service-metrics:
+    image: prom/prometheus:v2.40.1
+    container_name: fiuber-metrics
+    volumes:
+      - ./service-metrics/config/:/etc/prometheus/
+    networks:
+      - fiuber
+    ports:
+      - "${SERVICE_METRICS_PORT}:${PROMETHEUS_DEFAULT_PORT}"
 
   mongodb:
     image: mongo:4.0
