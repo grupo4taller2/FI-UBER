@@ -159,7 +159,6 @@ services:
       - ./service-metrics/config/:/etc/prometheus/
     environment:
       - SERVICE_TRIPS_REMOTE_URL=${API_GATEWAY_SERVICE_TRIPS_HOST}:${SERVICE_TRIPS_PORT}
-      - "PORT=${PROMETHEUS_DEFAULT_PORT}"
     networks:
       - fiuber
     ports:
