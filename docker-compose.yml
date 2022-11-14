@@ -147,6 +147,22 @@ services:
     volumes:
       - /mnt/ramdisk:/var/lib/postgresql/data
 
+  service-metrics:
+    hostname: service-metrics
+    build:
+      context: service-metrics
+      args:
+        APP_ENV: development
+    image: fiuber.service-metrics:dev
+    container_name: fiuber.service-metrics
+    volumes:
+      - ./service-metrics/config/:/etc/prometheus/
+    environment:
+      - SERVICE_TRIPS_REMOTE_URL=${API_GATEWAY_SERVICE_TRIPS_HOST}:${SERVICE_TRIPS_PORT}
+    networks:
+      - fiuber
+    ports:
+      - "${SERVICE_METRICS_PORT}:${PROMETHEUS_DEFAULT_PORT}"
 
   mongodb:
     image: mongo:4.0
