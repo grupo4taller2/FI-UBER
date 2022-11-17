@@ -30,3 +30,7 @@
 	path = service-metrics
 	url = git@github.com:grupo4taller2/service-metrics.git
 	branch = main
+[submodule "service-payments"]
+	path = service-payments
+	url = git@github.com:grupo4taller2/service-payments.git
+	branch = master
