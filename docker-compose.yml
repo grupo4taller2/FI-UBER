@@ -162,6 +162,35 @@ services:
     ports:
       - "${SERVICE_METRICS_PORT}:${PROMETHEUS_DEFAULT_PORT}"
 
+  service-payments:
+    hostname: service-payments
+    build:
+      context: service-payments
+      args:
+        APP_ENV: development
+    image: fiuber.service-payments:dev
+    container_name: fiuber.service-payments.dev
+    volumes:
+      - ./service-payments/src:/opt/app/src
+      - ./service-payments/test:/opt/app/test
+      - ./service-payments/.vscode:/opt/app/.vscode
+    environment:
+      - SERVICE_PAYMENTS_HOST=${SERVICE_PAYMENTS_HOST}
+      - SERVICE_PAYMENTS_PORT=${SERVICE_PAYMENTS_PORT}
+      - NODE_ENV=development
+      - ALCHEMY_API_KEY=${ALCHEMY_API_KEY}
+      - MNEMONIC=${MNEMONIC}
+      - MONGO_ATLAS_PAYMENTS=${MONGO_ATLAS_PAYMENTS}
+    networks:
+      - fiuber
+    ports:
+      - "${SERVICE_PAYMENTS_PORT}:${SERVICE_PAYMENTS_PORT}"
+    stdin_open: true
+    tty: true
+    depends_on:
+      - mongodb
+    command: "bash -c 'npm run dev-start'"
+
   mongodb:
     image: mongo:4.0
     restart: always
