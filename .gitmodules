@@ -1,16 +1,16 @@
 [submodule "service-users"]
 	path = service-users
-	url = git@github.com:grupo4taller2/service-users.git
+	url = https://github.com/grupo4taller2/service-users.git
 	branch = main
 [submodule "origin"]
 	branch = .
 [submodule "api-gateway"]
 	path = api-gateway
-	url = git@github.com:grupo4taller2/api-gateway.git
+	url = https://github.com/grupo4taller2/api-gateway.git
 	branch = main
 [submodule "service-auth"]
 	path = service-auth
-	url = git@github.com:grupo4taller2/service-auth.git
+	url = https://github.com/grupo4taller2/service-auth.git
 	branch = main
 [submodule "service-auth/"]
 	branch = main
@@ -20,17 +20,17 @@
 	branch = main
 [submodule "service-trips"]
 	path = service-trips
-	url = git@github.com:grupo4taller2/service-trips.git
+	url = https://github.com/grupo4taller2/service-trips.git
 	branch = main
 [submodule "service-pricing"]
 	path = service-pricing
-	url = git@github.com:grupo4taller2/service-pricing.git
+	url = https://github.com/grupo4taller2/service-pricing.git
 	branch = main
 [submodule "service-metrics"]
 	path = service-metrics
-	url = git@github.com:grupo4taller2/service-metrics.git
+	url = https://github.com/grupo4taller2/service-metrics.git
 	branch = main
 [submodule "service-payments"]
 	path = service-payments
-	url = git@github.com:grupo4taller2/service-payments.git
+	url = https://github.com/grupo4taller2/service-payments.git
 	branch = master
