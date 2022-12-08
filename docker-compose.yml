@@ -71,7 +71,6 @@ services:
     depends_on:
       - dev-db
       - mongodb
-    # There must be better ways to do this ...
     command: "bash -c 'sleep 5 && alembic upgrade head && python3 -m uvicorn src.webapi.main:app --host=$${SERVICE_USERS_HOST} --port=$${SERVICE_USERS_PORT} --reload'"
   
   service-trips:
@@ -151,21 +150,6 @@ services:
       - "${POSTGRES_PORT}:${POSTGRES_PORT}"
     volumes:
       - /mnt/ramdisk:/var/lib/postgresql/data
-
-  #service-metrics:
-  #  hostname: service-metrics
-  #  build:
-  #    context: service-metrics
-  #    args:
-  #      APP_ENV: development
-  #  image: fiuber.service-metrics:dev
-  #  container_name: fiuber.service-metrics
-  #  environment:
-  #    - SERVICE_TRIPS_REMOTE_URL=${API_GATEWAY_SERVICE_TRIPS_HOST}:${SERVICE_TRIPS_PORT}
-  #  networks:
-  #    - fiuber
-  #  ports:
-  #    - "${SERVICE_METRICS_PORT}:${PROMETHEUS_DEFAULT_PORT}"
 
   service-payments:
     hostname: service-payments
