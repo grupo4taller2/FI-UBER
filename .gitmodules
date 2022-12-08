@@ -8,10 +8,6 @@
 	path = api-gateway
 	url = git@github.com:grupo4taller2/api-gateway.git
 	branch = main
-[submodule "service-auth"]
-	path = service-auth
-	url = git@github.com:grupo4taller2/service-auth.git
-	branch = main
 [submodule "service-auth/"]
 	branch = main
 [submodule "service-users/"]
@@ -25,10 +21,6 @@
 [submodule "service-pricing"]
 	path = service-pricing
 	url = git@github.com:grupo4taller2/service-pricing.git
-	branch = main
-[submodule "service-metrics"]
-	path = service-metrics
-	url = git@github.com:grupo4taller2/service-metrics.git
 	branch = main
 [submodule "service-payments"]
 	path = service-payments
