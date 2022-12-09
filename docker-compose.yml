@@ -148,8 +148,8 @@ services:
       - fiuber
     ports:
       - "${POSTGRES_PORT}:${POSTGRES_PORT}"
-    volumes:
-      - /mnt/ramdisk:/var/lib/postgresql/data
+    # volumes:
+    #  - /mnt/ramdisk:/var/lib/postgresql/data
 
   service-payments:
     hostname: service-payments
